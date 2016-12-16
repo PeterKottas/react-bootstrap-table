@@ -70,6 +70,10 @@ class TableBody extends Component {
         } else {
           // add by bluespring for className customize
           let columnChild = fieldValue && fieldValue.toString();
+          if (fieldValue && fieldValue.$$typeof && fieldValue.$$typeof.toString() ===
+					'Symbol(react.element)') {
+            columnChild = fieldValue;
+          }
           let columnTitle = null;
           let tdClassName = column.className;
           if (isFun(column.className)) {
